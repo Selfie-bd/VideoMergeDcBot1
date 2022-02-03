@@ -83,6 +83,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 ```
+https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fselfie-bd%2FVideoMergeDcBot1&envs=APP_ID%2CAPI_HASH
 
 ## Credits
 
