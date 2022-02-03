@@ -1,18 +1,10 @@
-# MERGE-BOT
-### PR's welcomed
-<br>
+# VIDEO MERGE BOT
 
-![GitHub Repo stars](https://img.shields.io/github/stars/yashoswalyo/MERGE-BOT?color=blue&style=flat)
-![GitHub forks](https://img.shields.io/github/forks/yashoswalyo/MERGE-BOT?color=green&style=flat)
-![GitHub issues](https://img.shields.io/github/issues/yashoswalyo/MERGE-BOT)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/yashoswalyo/MERGE-BOT)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yashoswalyo/MERGE-BOT)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/yashoswalyo/MERGE-BOT)
-![GitHub contributors](https://img.shields.io/github/contributors/yashoswalyo/MERGE-BOT?style=flat)
-![GitHub repo size](https://img.shields.io/github/repo-size/yashoswalyo/MERGE-BOT?color=red)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yashoswalyo/MERGE-BOT)
+[![card](https://github-readme-stats.vercel.app/api/pin/?username=Selfie-bd&repo=VideoMergeDcBot1)](https://github.com/selfie-bd/)
 
-An Telegram Bot By [Yash Oswal](https://t.me/yashoswalyo) To Merge multiple Videos in Telegram into single video.
+### Groupdcbots
+
+An Telegram Bot Demo [Video Merge Bot](https://t.me/VideoMergeDcBot) To Merge multiple Videos in Telegram into single video.
 
 ```diff
 - WHAT'S NEW:
@@ -38,7 +30,7 @@ An Telegram Bot By [Yash Oswal](https://t.me/yashoswalyo) To Merge multiple Vide
 ```
 
 ## Deploy(at your own risk) :
-<p><a href="https://heroku.com/deploy?template=https://github.com/yashoswalyo/MERGE-BOT"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/selfie-bd/MERGE-BOT"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
 
 ## Config Variables :
 1. `API_ID` : User Account Telegram API_ID, get it from my.telegram.org
