@@ -50,13 +50,25 @@ async def allowUser(c:Client, m: Message):
 	if passwd == Config.PASSWORD:
 		await database.allowUser(uid=m.from_user.id)
 		await m.reply_text(
-			text=f"**Login passed ✅,**\n  ⚡ Now you can you me!!",
+			text=f"**Login passed ✅,**\n\n⚡ Now you can you me!!",
 			quote=True
+		        reply_markup=InlineKeyboardMarkup(
+			[
+				[
+					InlineKeyboardButton("❗Subscribe Our Channel❗", url="https://t.me/HdFlimz")
+				]
+			]
 		)
 	else:
 		await m.reply_text(
-			text=f"**Login failed ❌,**\n  🛡️ Unfortunately you can't use me\n\nContact: 🈲 @{Config.OWNER_USERNAME}",
+			text=f"**Login failed ❌,**\n\n🛡️ Unfortunately you can't use me\n\n❗Ask Password Here @DcStreamBot",
 			quote=True
+		        reply_markup=InlineKeyboardMarkup(
+			[
+				[
+					InlineKeyboardButton("👁️‍🗨️ Get Your Password 👁️‍🗨️", url="https://t.me/Dcstreambot/61")
+				]
+			]
 		)
 	return
 
@@ -111,12 +123,12 @@ async def start_handler(c: Client, m: Message):
 	await database.addUser(uid=m.from_user.id,fname=m.from_user.first_name, lname=m.from_user.last_name)
 	if await database.allowedUser(uid=m.from_user.id) is False:
 		res = await m.reply_text(
-			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n**Contact: 🈲 @{Config.OWNER_USERNAME}** ",
+			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n❗Ask Password Here @DcStreamBot",
 			quote=True
 		)
 		return
 	res = await m.reply_text(
-		text=f"Hi **{m.from_user.first_name}**\n\n ⚡ I am a file/video merger bot\n\n😎 I can merge Telegram files!, And upload it to telegram\n\n**Owner: 🈲 @{Config.OWNER_USERNAME}** ",
+		text=f"Hi **{m.from_user.first_name}**\n\n ⚡ I am a file/video merger bot\n\n😎 I can merge Telegram files! and upload it to telegram or Drive \n\n🦊 **Powered by @GroupDcBots** ",
 		quote=True
 	)
 
@@ -125,13 +137,13 @@ async def start_handler(c: Client, m: Message):
 async def video_handler(c: Client, m: Message):
 	if await database.allowedUser(uid=m.from_user.id) is False:
 		res = await m.reply_text(
-			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n**Contact: 🈲 @{Config.OWNER_USERNAME}** ",
+			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n❗Ask Password Here @DcStreamBot",
 			quote=True
 		)
 		return
 	input_ = f"downloads/{str(m.from_user.id)}/input.txt"
 	if os.path.exists(input_):
-		await m.reply_text("Sorry Bro,\nAlready One process in Progress!\nDon't Spam.")
+		await m.reply_text("Sorry Bro,\nAlready One process in Progress!\nDon't Spam.❌")
 		return
 	media = m.video or m.document
 	currentFileNameExt = media.file_name.rsplit(sep='.')[-1].lower()
@@ -189,7 +201,7 @@ async def video_handler(c: Client, m: Message):
 		print(queueDB.get(m.from_user.id)['videos'], queueDB.get(m.from_user.id)['subtitles'])
 		if len(queueDB.get(m.from_user.id)['videos']) == 1:
 			await editable.edit(
-				'**Send me some more videos to merge them into single file**',parse_mode='markdown'
+				'**Send me some more videos to merge them into single file ❗**',parse_mode='markdown'
 			)
 			return
 		if queueDB.get(m.from_user.id, None)['videos'] is None:
@@ -207,7 +219,7 @@ async def video_handler(c: Client, m: Message):
 	elif len(queueDB.get(m.from_user.id)['videos']) > 10:
 		markup = await MakeButtons(c,m,queueDB)
 		await editable.text(
-			"Max 10 videos allowed",
+			"Max 10 videos allowed ✅",
 			reply_markup=InlineKeyboardMarkup(markup)
 		)
 
@@ -215,7 +227,7 @@ async def video_handler(c: Client, m: Message):
 async def photo_handler(c: Client,m: Message):
 	if await database.allowedUser(uid=m.from_user.id) is False:
 		res = await m.reply_text(
-			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n**Contact: 🈲 @{Config.OWNER_USERNAME}** ",
+			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n❗Ask Password Here @DcStreamBot",
 			quote=True
 		)
 		return
@@ -269,10 +281,10 @@ async def about_handler(c:Client,m:Message):
 		reply_markup=InlineKeyboardMarkup(
 			[
 				[
-					InlineKeyboardButton("Developer", url="https://t.me/yashoswalyo")
+					InlineKeyboardButton("🔰 Updates Channel 🔰", url="https://t.me/groupdcbots")
 				],
 				[
-					InlineKeyboardButton("Source Code", url="https://github.com/yashoswalyo/MERGE-BOT"),
+					InlineKeyboardButton("Source Code", url="https://github.com/selfie-bd/MERGEDcBOT"),
 					InlineKeyboardButton("Deployed By", url=f"https://t.me/{Config.OWNER_USERNAME}")
 				]
 			]
@@ -384,7 +396,7 @@ async def callback(c: Client, cb: CallbackQuery):
 	elif cb.data == 'document':
 		UPLOAD_AS_DOC.update({f'{cb.from_user.id}':True})
 		await cb.message.edit(
-			text='Do you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**',
+			text='Do you want to rename? Default file name is **[@Umlinks]_merged.mkv**',
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
@@ -400,7 +412,7 @@ async def callback(c: Client, cb: CallbackQuery):
 	elif cb.data == 'video':
 		UPLOAD_AS_DOC.update({f'{cb.from_user.id}':False})
 		await cb.message.edit(
-			text='Do you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**',
+			text='Do you want to rename? Default file name is **[@Umlinks]_merged.mkv**',
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
@@ -416,7 +428,7 @@ async def callback(c: Client, cb: CallbackQuery):
 	elif cb.data == 'documentS':
 		UPLOAD_AS_DOC.update({f'{cb.from_user.id}':True})
 		await cb.message.edit(
-			text='Do you want to rename? Default file name is **[@yashoswalyo]_softmuxed_video.mkv**',
+			text='Do you want to rename? Default file name is **[@hdFlimz]_softmuxed_video.mkv**',
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
@@ -432,7 +444,7 @@ async def callback(c: Client, cb: CallbackQuery):
 	elif cb.data == 'videoS':
 		UPLOAD_AS_DOC.update({f'{cb.from_user.id}':False})
 		await cb.message.edit(
-			text=f"Do you want to rename? Default file name is **[@yashoswalyo]_softmuxed_video.mkv**",
+			text=f"Do you want to rename? Default file name is **[@Hdflimz]_softmuxed_video.mkv**",
 			reply_markup=InlineKeyboardMarkup(
 				[
 					[
@@ -461,7 +473,7 @@ async def callback(c: Client, cb: CallbackQuery):
 	elif cb.data.startswith('rename_'):
 		if 'YES' in cb.data:
 			await cb.message.edit(
-				'Current filename: **[@yashoswalyo]_merged.mkv**\n\nSend me new file name without extension: You have 1 minute',
+				'Current filename: **[@umlinks]_merged.mkv**\n\nSend me new file name without extension: You have 1 minute',
 				parse_mode='markdown'
 			)
 			res: Message = await c.listen( cb.message.chat.id,filters=filters.text, timeout=60 )
@@ -471,12 +483,12 @@ async def callback(c: Client, cb: CallbackQuery):
 				await mergeNow(c,cb,new_file_name)
 			return
 		if 'NO' in cb.data:
-			await mergeNow(c,cb,new_file_name = f"./downloads/{str(cb.from_user.id)}/[@yashoswalyo]_merged.mkv")
+			await mergeNow(c,cb,new_file_name = f"./downloads/{str(cb.from_user.id)}/[@hdflimz]_merged.mkv")
 
 	elif cb.data.startswith('renameS_'):
 		if 'YES' in cb.data:
 			await cb.message.edit(
-				'Current filename: **[@yashoswalyo]_softmuxed_video.mkv**\n\nSend me new file name without extension: You have 1 minute ',
+				'Current filename: **[@hdflimz]_softmuxed_video.mkv**\n\nSend me new file name without extension: You have 1 minute ',
 				parse_mode='markdown'
 			)
 			res: Message = await c.listen( cb.message.chat.id,filters=filters.text, timeout=300 )
@@ -485,7 +497,7 @@ async def callback(c: Client, cb: CallbackQuery):
 				await res.delete(True)
 				await mergeSub(c,cb,new_file_name)
 		if 'NO' in cb.data:
-			await mergeSub(c,cb,new_file_name = f"./downloads/{str(cb.from_user.id)}/[@yashoswalyo]_softmuxed_video.mkv")
+			await mergeSub(c,cb,new_file_name = f"./downloads/{str(cb.from_user.id)}/[@hdflimz]_softmuxed_video.mkv")
 
 	elif cb.data == 'cancel':
 		await delete_all(root=f"downloads/{cb.from_user.id}/")
@@ -658,7 +670,7 @@ async def mergeSub(c:Client,cb:CallbackQuery,new_file_name:str):
 	print()
 	omess = cb.message.reply_to_message
 	vid_list = list()
-	await cb.message.edit('⭕ Processing...')
+	await cb.message.edit('⭕ Processing...🦊')
 	duration = 0
 	list_message_ids = queueDB.get(cb.from_user.id)["videos"]
 	list_message_ids.sort()
@@ -708,7 +720,7 @@ async def mergeSub(c:Client,cb:CallbackQuery,new_file_name:str):
 		queueDB.update({cb.from_user.id: {'videos':[],'subtitles':[]}})
 		formatDB.update({cb.from_user.id: None})
 		return
-	await cb.message.edit("✅ Sucessfully Muxed Video !")
+	await cb.message.edit("✅ Sucessfully Mixed Video !")
 	print(f"Video muxed for: {cb.from_user.first_name} ")
 	await asyncio.sleep(3)
 	file_size = os.path.getsize(subbed_video)
@@ -733,7 +745,7 @@ async def mergeSub(c:Client,cb:CallbackQuery,new_file_name:str):
 		await delete_all(root=f'./downloads/{str(cb.from_user.id)}')
 		queueDB.update({cb.from_user.id: {'videos':[],'subtitles':[]}})
 		formatDB.update({cb.from_user.id: None})
-		await cb.message.edit("⭕ Merged Video is corrupted")
+		await cb.message.edit("⭕ Merged Video is corrupted ❗")
 		return
 	try:
 		thumb_id = await database.getThumb(cb.from_user.id)
