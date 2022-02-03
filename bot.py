@@ -52,23 +52,11 @@ async def allowUser(c:Client, m: Message):
 		await m.reply_text(
 			text=f"**Login passed ✅,**\n\n⚡ Now you can you me!!",
 			quote=True
-		        reply_markup=InlineKeyboardMarkup(
-			[
-				[
-					InlineKeyboardButton("❗Subscribe Our Channel❗", url="https://t.me/HdFlimz")
-				]
-			]
 		)
 	else:
 		await m.reply_text(
-			text=f"**Login failed ❌,**\n\n🛡️ Unfortunately you can't use me\n\n❗Ask Password Here @DcStreamBot",
+			text=f"**Login failed ❌,**\n\n🛡️ Unfortunately you can't use me\n\n❗Ask Password Here https://t.me/Dcstreambot/61",
 			quote=True
-		        reply_markup=InlineKeyboardMarkup(
-			[
-				[
-					InlineKeyboardButton("👁️‍🗨️ Get Your Password 👁️‍🗨️", url="https://t.me/Dcstreambot/61")
-				]
-			]
 		)
 	return
 
