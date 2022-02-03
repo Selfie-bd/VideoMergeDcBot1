@@ -55,7 +55,7 @@ async def allowUser(c:Client, m: Message):
 		)
 	else:
 		await m.reply_text(
-			text=f"**Login failed ❌,**\n\n🛡️ Unfortunately you can't use me\n\n use below format 👇 \n/login VideoMergeDcBot\n\n❗Ask Password Here t.me/Dcstreambot/61 ",
+			text=f"**Login failed ❌,**\n\n🛡️ Unfortunately you can't use me\n\n use below format 👇 \n/login VideoMergeDcBot\n\n❗Ask Password Here t.me/Dcstreambot/61",
 			quote=True
 		)
 	return
@@ -111,12 +111,12 @@ async def start_handler(c: Client, m: Message):
 	await database.addUser(uid=m.from_user.id,fname=m.from_user.first_name, lname=m.from_user.last_name)
 	if await database.allowedUser(uid=m.from_user.id) is False:
 		res = await m.reply_text(
-			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n❗Ask Password Here @DcStreamBot",
+			text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n use below format 👇 \n/login VideoMergeDcBot\n\n❗Ask Password Here t.me/Dcstreambot/61",
 			quote=True
 		)
 		return
 	res = await m.reply_text(
-		text=f"Hi **{m.from_user.first_name}**\n\n ⚡ I am a file/video merger bot\n\n😎 I can merge Telegram files! and upload it to telegram or Drive \n\n🦊 **Powered by @GroupDcBots** ",
+		text=f"Hi **{m.from_user.first_name}**\n\n ⚡ I am a file/video merger bot\n\n😎 I can merge Telegram files! and upload it to telegram or Drive \n\n⚠️ Some Bug in Merge in Drive.So Please Don't Use that. Use Telegram Merge✅. \n\n🦊 **Powered by @GroupDcBots** ",
 		quote=True
 	)
 
