@@ -2,9 +2,10 @@
 
 [![card](https://github-readme-stats.vercel.app/api/pin/?username=Selfie-bd&repo=VideoMergeDcBot1)](https://github.com/selfie-bd/)
 
-### Groupdcbots
+# An Telegram Bot Demo
+# 👉 [@VideoMergeDcBot](https://t.me/VideoMergeDcBot) 
 
-An Telegram Bot Demo [Video Merge Bot](https://t.me/VideoMergeDcBot) To Merge multiple Videos in Telegram into single video.
+To Merge multiple Videos in Telegram into single video.
 
 ```diff
 - WHAT'S NEW:
