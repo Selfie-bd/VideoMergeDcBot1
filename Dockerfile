@@ -7,7 +7,7 @@ RUN chmod 777 /app
 RUN apt -qq update
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Kolkata
-RUN apt -qq install -y git python3 python3-pip
+RUN apt -qq install -y git python python-pip
 
 RUN git clone https://github.com/Selfie-bd/VideoMergeDcBot1.git /app
 
