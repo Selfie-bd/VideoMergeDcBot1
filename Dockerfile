@@ -15,4 +15,4 @@ WORKDIR /app
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-CMD ["bash","run.sh"]
+CMD ["bot.py","run.sh"]
