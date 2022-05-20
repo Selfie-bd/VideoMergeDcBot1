@@ -8,3 +8,4 @@ telegram
 TgCrypto
 dnspython
 ffmpeg-python
+gunicorn
