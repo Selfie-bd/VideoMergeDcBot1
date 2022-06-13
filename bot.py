@@ -50,12 +50,12 @@ async def allowUser(c:Client, m: Message):
 	if passwd == Config.PASSWORD:
 		await database.allowUser(uid=m.from_user.id)
 		await m.reply_text(
-			text=f"**Login passed ✅,**\n\n⚡ Now you can you me!!\n\n /Start here 🦊",
+			text=f"**Login passed ✅**\n\n⚡ Now you can you me!!\n\n /Start here 🦊",
 			quote=True
 		)
 	else:
 		await m.reply_text(
-			text=f"**Login failed ❌,**\n\n🛡️ Unfortunately you can't use me\n\n use below format 👇 \n/login VideoMergeDcBot\n\n❗Ask Password Here t.me/Dcstreambot/61",
+			text=f"**Login failed ❌**\n\n🛡️ Unfortunately you can't use me\n\n use below format 👇 \n/login VideoMergeDcBot\n\n❗Ask Password Here t.me/Dcstreambot/61",
 			quote=True
 		)
 	return
